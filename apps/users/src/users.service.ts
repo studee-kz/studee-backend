@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common';
+import { UserDto } from '@libs/contracts/users/user.dto';
 
 @Injectable()
 export class UsersService {
-  getHello(): string {
-    return 'Hello World!';
+  findById(dto: UserDto): UserDto {
+    return dto;
   }
 }

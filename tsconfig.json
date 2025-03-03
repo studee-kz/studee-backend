@@ -17,6 +17,13 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "noFallthroughCasesInSwitch": false,
-    "paths": {}
+    "paths": {
+      "@libs/contracts": [
+        "libs/contracts/src"
+      ],
+      "@libs/contracts/*": [
+        "libs/contracts/src/*"
+      ]
+    }
   }
 }

@@ -1,12 +1,14 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller } from '@nestjs/common';
+import { MessagePattern } from '@nestjs/microservices';
+import { UserDto } from '@libs/contracts/users/user.dto';
 import { UsersService } from './users.service';
 
 @Controller()
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
-  @Get()
-  getHello(): string {
-    return this.usersService.getHello();
+  @MessagePattern('users.findById')
+  findById(@Body() dto: UserDto): UserDto {
+    return this.usersService.findById(dto);
   }
 }
